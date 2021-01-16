@@ -1,0 +1,37 @@
+{
+    "name": "philiagus/dataprovider",
+    "description": "DataProvider for PHP Unit testing",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "php",
+        "dataprovider"
+    ],
+    "authors": [
+        {
+            "name": "Andreas Bittner",
+            "email": "php@philiagus.de",
+            "role": "lead"
+        }
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "support": {
+        "issues": "https://github.com/philiagus/dataprovider/issues"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "ext-xdebug": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Philiagus\\DataProvider\\": "src/Philiagus/DataProvider"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Philiagus\\DataProvider\\Test\\": "tests/Philiagus/DataProvider/Test"
+        }
+    }
+}
