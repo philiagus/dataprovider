@@ -3,13 +3,9 @@
 A data provider to easily test type assertion cases.
 
 # Is it tested?
-Tested on the following PHP Version:
-- PHP7.2
-- PHP7.3
-- PHP7.4
-- PHP8.0
+Tested on the following PHP Version: PHP8.0 - PHP8.3
 
-100% test covered. Test coverage generated on PHP7.2
+100% test covered. Test coverage generated on PHP8.3
 
 # How do I get it?
 
@@ -65,30 +61,30 @@ These constants are a bitmask, so you can bit-operator them together, such as `D
 
 The `DataProvider::TYPE_ALL` contains all cases and is the default of the DataProvider.
 
-| Constant | What it does
-|----------|-------------|
-| `DataProvider::TYPE_BOOLEAN` | Provides the two fundamental bool cases `true` and `false`|
-| `DataProvider::TYPE_FLOAT` | Provides positive and negative float values but excludes INF, -INF and NAN |  
-| `DataProvider::TYPE_INTEGER` | Provides positive and negative integer values (including 0) |    
-| `DataProvider::TYPE_OBJECT` | Provides various objects, such as \stdClass, \Exception and \DateTime |  
-| `DataProvider::TYPE_RESOURCE` | Provides a resource, if it is able to. As what provides a resource might change with future versions of PHP this currently uses STDIN as a resource and excludes it from the test list if STDIN is not a resource in your current environment. |
-| `DataProvider::TYPE_STRING` | Provides various strings, including empty string |
-| `DataProvider::TYPE_NULL` | Provides `null` as case |
-| `DataProvider::TYPE_NAN` | Provides `NAN` as a case |
-| `DataProvider::TYPE_INFINITE` | Provides both `INF` and `-INF` |
-| `DataProvider::TYPE_ARRAY_EMPTY` | Provides an empty array |  
-| `DataProvider::TYPE_ARRAY_LIST` | Provides multiple arrays with a single and multiple elements, with a sequential index, starting at 0 |
-| `DataProvider::TYPE_ARRAY_MAP_INTEGER` | Provides multiple arrays with single and multiple elements, with not sequential indizies or index not starting at 0 |
-| `DataProvider::TYPE_ARRAY_MAP_STRING` | Provides multiple arrays with single and multiple elements, each having string keys|
-| `DataProvider::TYPE_ARRAY_MAP_INTEGER_STRING` | Provides arrays with mixed keys (so string and integer keys) |
+| Constant                                      | What it does                                                                                                                                                                                                                                   |
+|-----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `DataProvider::TYPE_BOOLEAN`                  | Provides the two fundamental bool cases `true` and `false`                                                                                                                                                                                     |
+| `DataProvider::TYPE_FLOAT`                    | Provides positive and negative float values but excludes INF, -INF and NAN                                                                                                                                                                     |  
+| `DataProvider::TYPE_INTEGER`                  | Provides positive and negative integer values (including 0)                                                                                                                                                                                    |    
+| `DataProvider::TYPE_OBJECT`                   | Provides various objects, such as \stdClass, \Exception and \DateTime                                                                                                                                                                          |  
+| `DataProvider::TYPE_RESOURCE`                 | Provides a resource, if it is able to. As what provides a resource might change with future versions of PHP this currently uses STDIN as a resource and excludes it from the test list if STDIN is not a resource in your current environment. |
+| `DataProvider::TYPE_STRING`                   | Provides various strings, including empty string                                                                                                                                                                                               |
+| `DataProvider::TYPE_NULL`                     | Provides `null` as case                                                                                                                                                                                                                        |
+| `DataProvider::TYPE_NAN`                      | Provides `NAN` as a case                                                                                                                                                                                                                       |
+| `DataProvider::TYPE_INFINITE`                 | Provides both `INF` and `-INF`                                                                                                                                                                                                                 |
+| `DataProvider::TYPE_ARRAY_EMPTY`              | Provides an empty array                                                                                                                                                                                                                        |  
+| `DataProvider::TYPE_ARRAY_LIST`               | Provides multiple arrays with a single and multiple elements, with a sequential index, starting at 0                                                                                                                                           |
+| `DataProvider::TYPE_ARRAY_MAP_INTEGER`        | Provides multiple arrays with single and multiple elements, with not sequential indizies or index not starting at 0                                                                                                                            |
+| `DataProvider::TYPE_ARRAY_MAP_STRING`         | Provides multiple arrays with single and multiple elements, each having string keys                                                                                                                                                            |
+| `DataProvider::TYPE_ARRAY_MAP_INTEGER_STRING` | Provides arrays with mixed keys (so string and integer keys)                                                                                                                                                                                   |
 
 There are also some compound constants
 
- Constant | What it includes |
-----------|---------------|
-| `DataProvider::TYPE_ARRAY_MAP` | <ul><li>`DataProvider::TYPE_ARRAY_MAP_INTEGER`</li><li>`DataProvider::TYPE_ARRAY_MAP_STRING`</li><li>`DataProvider::TYPE_ARRAY_MAP_INTEGER_STRING`</li></ul>
-| `DataProvider::TYPE_ARRAY` | <ul><li>`DataProvider::TYPE_ARRAY_LIST`</li><li>`DataProvider::TYPE_ARRAY_MAP`</li><li>`DataProvider::TYPE_ARRAY_EMPTY`</li></ul>
-| `DataProvider::TYPE_SCALAR` | <ul><li>`DataProvider::TYPE_BOOLEAN`</li><li>`DataProvider::TYPE_INTEGER`</li><li>`DataProvider::TYPE_FLOAT`</li><li>`DataProvider::TYPE_STRING`</li><li>`DataProvider::TYPE_NAN`</li><li>`DataProvider::TYPE_INFINITE`</ul>
+| Constant                       | What it includes                                                                                                                                                                                                             |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `DataProvider::TYPE_ARRAY_MAP` | <ul><li>`DataProvider::TYPE_ARRAY_MAP_INTEGER`</li><li>`DataProvider::TYPE_ARRAY_MAP_STRING`</li><li>`DataProvider::TYPE_ARRAY_MAP_INTEGER_STRING`</li></ul>                                                                 |
+| `DataProvider::TYPE_ARRAY`     | <ul><li>`DataProvider::TYPE_ARRAY_LIST`</li><li>`DataProvider::TYPE_ARRAY_MAP`</li><li>`DataProvider::TYPE_ARRAY_EMPTY`</li></ul>                                                                                            |
+| `DataProvider::TYPE_SCALAR`    | <ul><li>`DataProvider::TYPE_BOOLEAN`</li><li>`DataProvider::TYPE_INTEGER`</li><li>`DataProvider::TYPE_FLOAT`</li><li>`DataProvider::TYPE_STRING`</li><li>`DataProvider::TYPE_NAN`</li><li>`DataProvider::TYPE_INFINITE`</ul> |
 
 ## The methods `filter`, `map` and `addCase`
 

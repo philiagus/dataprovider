@@ -2,7 +2,7 @@
 /*
  * This file is part of philiagus/dataprovider
  *
- * (c) Andreas Bittner <php@philiagus.de>
+ * (c) Andreas Eicher <php@philiagus.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -41,28 +41,22 @@ class DataProvider
     public const TYPE_ALL = PHP_INT_MAX;
 
     /**
-     * @var int
-     */
-    private $types;
-
-    /**
      * @var mixed[]
      */
-    private $callbacks = [];
+    private array $callbacks = [];
 
     /**
      * @var array<string, mixed>
      */
-    private $customCases = [];
+    private array $customCases = [];
 
     /**
      * Create a new data provider object, providing only the specified types by default
      *
      * @param int $types
      */
-    public function __construct(int $types = self::TYPE_ALL)
+    public function __construct(private readonly int $types = self::TYPE_ALL)
     {
-        $this->types = $types;
     }
 
 
@@ -163,17 +157,10 @@ class DataProvider
                         if ($propertyB === null) {
                             return false;
                         }
-                        try {
-                            $propertyA->setAccessible(true);
-                            $propertyB->setAccessible(true);
-                            $valueA = $propertyA->getValue($a);
-                            $valueB = $propertyB->getValue($b);
-                            if (!self::isEqual($valueA, $valueB)) {
-                                return false;
-                            }
-                        } finally {
-                            $propertyA->setAccessible(false);
-                            $propertyB->setAccessible(false);
+                        $valueA = $propertyA->getValue($a);
+                        $valueB = $propertyB->getValue($b);
+                        if (!self::isEqual($valueA, $valueB)) {
+                            return false;
                         }
                     }
                 } while (
@@ -196,7 +183,7 @@ class DataProvider
      *
      * @param bool $wrapIntoArrayForPHPUnitProvider
      *
-     * @return array|string[]
+     * @return array
      */
     public function provide(bool $wrapIntoArrayForPHPUnitProvider = true): array
     {

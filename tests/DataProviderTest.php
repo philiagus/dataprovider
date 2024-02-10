@@ -2,7 +2,7 @@
 /*
  * This file is part of philiagus/dataprovider
  *
- * (c) Andreas Bittner <php@philiagus.de>
+ * (c) Andreas Eicher <php@philiagus.de>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 class DataProviderTest extends TestCase
 {
 
-    public function provideTestDataProvideProvidesCases(): array
+    public static function provideTestDataProvideProvidesCases(): array
     {
         $types = [
             "TYPE_SCALAR" => [
@@ -229,7 +229,7 @@ class DataProviderTest extends TestCase
         self::assertSame($expect, $provider->provide(false));
     }
 
-    public function provideIsSameCases(): array
+    public static function provideIsSameCases(): array
     {
         $elements = [
             'null' => null,
@@ -291,7 +291,7 @@ class DataProviderTest extends TestCase
         self::assertSame($expected, DataProvider::isSame($a, $b));
     }
 
-    public function provideEqualsCases(): array
+    public static function provideEqualsCases(): array
     {
         usleep(2);
         $createStdClass = function (string $stringValue = 'string') {

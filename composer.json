@@ -9,13 +9,13 @@
     ],
     "authors": [
         {
-            "name": "Andreas Bittner",
+            "name": "Andreas Eicher",
             "email": "php@philiagus.de",
             "role": "lead"
         }
     ],
     "require": {
-        "php": ">=7.2"
+        "php": ">=8.1"
     },
     "support": {
         "issues": "https://github.com/philiagus/dataprovider/issues"
@@ -26,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Philiagus\\DataProvider\\": "src/Philiagus/DataProvider"
+            "Philiagus\\DataProvider\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Philiagus\\DataProvider\\Test\\": "tests/Philiagus/DataProvider/Test"
+            "Philiagus\\DataProvider\\Test\\": "tests"
         }
     }
 }
